@@ -59,7 +59,7 @@ subMenuEl.style.position = "absolute";
 subMenuEl.style.top = "0";
 
 //Creating submenu
-function submenu(subLinks) {
+function buildSubmenu(subLinks) {
     subMenuEl.innerHTML = '';
     subLinks.forEach(link => {
         const anchorEl = document.createElement('a');
@@ -96,10 +96,10 @@ topMenuEl.addEventListener("click", (event) => {//2
     
     if (clickedLink && clickedLink.subLinks) {
         subMenuEl.style.top = '100%';
-        submenu(clickedLink.subLinks);
+        buildSubmenu(clickedLink.subLinks);
     } else {
         subMenuEl.style.top = '0';
-        mainEl.innerHTML = "<h1>" + event.target.textContent + "</h1>";
+        mainEl.innerHTML = `<h1>${event.target.textContent}</h1>`;
     }
 });
 
@@ -118,5 +118,5 @@ subMenuEl.addEventListener('click', (event) => {
         el.classList.remove('active');
     });
     
-    mainEl.innerHTML = "<h1>" + event.target.textContent + "</h1>";
+    mainEl.innerHTML = `<h1>${event.target.textContent}</h1>`;
 });
